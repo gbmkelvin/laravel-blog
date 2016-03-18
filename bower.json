@@ -1,0 +1,8 @@
+{
+  "name": "Larablog",
+  "dependencies": {
+    "angular": "^1.5.1",
+    "Materialize": "materialize#^0.97.5",
+    "font-awesome": "^4.5.0"
+  }
+}

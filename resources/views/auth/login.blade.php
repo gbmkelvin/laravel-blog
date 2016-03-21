@@ -1,6 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     {!! Html::style('assets/css/material-icon.css') !!}
     {!! Html::style('assets/css/materialize.min.css', ['media' => 'screen,projection']) !!}
@@ -38,7 +37,7 @@
         }
     </style>
 </head>
-<body class="blue">
+<body class="container blue">
 <div class="login-form col s12 z-depth-4 card-panel">
     <form id="login-form">
         <div class="row">
@@ -62,7 +61,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12 m12 l12" style="margin-left: -6px !important; margin-top: -6px">
-                <input type="checkbox" id="remember-me" class="filled-in" name="remember"/>
+                <input type="checkbox" id="remember-me" name="remember"/>
                 <label for="remember-me">Remember me</label>
             </div>
         </div>

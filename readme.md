@@ -1,4 +1,4 @@
-## Materialize Blog
+## Laravel Blog
 
 A new blog manage system disigned according to Google [Material Design Spec](https://www.google.com/design/spec/material-design/introduction.html).
 
@@ -22,9 +22,9 @@ Backend based on [Laravel 5.2](https://laravel.com), a web application framework
 
 ### Install
 
-Clone this repository to your computer, or download zip file at [here](https://github.com/forehalo/materialize-blog/archive/master.zip).
+Clone this repository to your computer, or download zip file at [here](https://github.com/gbmkelvin/laravel-blog/archive/master.zip).
 
-    $git clone https://github.com/forehalo/materialize-blog.git blog
+    $git clone https://github.com/gbmkelvin/laravel-blog.git blog
 
 Then, same as installing Laravel, run
 
@@ -46,7 +46,7 @@ login dashboard at `/login`, default name `admin` or email `admin@example.com` ,
 
 ### License
 
-![](http://i.imgur.com/8ZtPnc7.png)
+![License Image](http://i.imgur.com/8ZtPnc7.png)
 
 http://www.gnu.org/licenses/lgpl.txt
 

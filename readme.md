@@ -4,7 +4,6 @@ A new blog manage system disigned according to Google [Material Design Spec](htt
 
 Backend based on [Laravel 5.2](https://laravel.com), a web application framework with expressive, elegant syntax.
 
-Demo at [Forehalo' blog](http://forehalo.me).
 
 ### Feature
 

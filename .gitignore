@@ -6,4 +6,4 @@ Homestead.json
 .env
 /resources/assets/vendor
 .DS_Store
-.idea
+/.idea

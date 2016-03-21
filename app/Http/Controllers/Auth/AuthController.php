@@ -2,71 +2,97 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
-     * Where to redirect users after login / registration.
+     * Redirect after login.
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/dashboard';
 
     /**
-     * Create a new authentication controller instance.
+     * Redirect after logout.
      *
-     * @return void
+     * @var string
      */
-    public function __construct()
+    protected $redirectAfterLogout = '/login';
+
+    /**
+     * Guard table name.
+     *
+     * @var string
+     */
+    protected $guard = 'admin';
+
+    /**
+     * Get login view.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getLogin()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        return view('auth.login');
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Login action.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param LoginRequest $request
+     * @param Guard $auth
+     * @return \Illuminate\Http\JsonResponse
      */
-    protected function validator(array $data)
+    public function postLogin(LoginRequest $request, Guard $auth)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
-    }
+        $input = $request->all();
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        // Filter login with email or name.
+        $logAccess = filter_var($input['log'], FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+
+        // Throttle
+        $throttle = in_array(ThrottlesLogins::class, class_uses_recursive(get_class($this)));
+
+        if ($throttle && $this->hasTooManyLoginAttempts($request)) {
+            return response()->json(['return' => false, 'value' => 'Too many attempts.']);
+        }
+
+        $credentials = [
+            $logAccess => $input['log'],
+            'password' => $input['password']
+        ];
+
+        if (!$auth->validate($credentials)) {
+            if ($throttle) {
+                $this->incrementLoginAttempts($request);
+            }
+
+            return response()->json(['return' => false, 'value' => 'Login failed, One more try.']);
+        }
+
+        $user = $auth->getLastAttempted();
+
+        if ($user) {
+            if ($throttle) {
+                $this->clearLoginAttempts($request);
+            }
+
+            $auth->login($user, $input['remember']);
+
+            session()->put('user_name', $user->name);
+            session()->put('user_email', $user->email);
+
+            return response()->json(['return' => true, 'value' => url('/dashboard')]);
+        }
+        return response()->json(['return' => false, 'value' => 'Login failed, One more try.']);
     }
 }

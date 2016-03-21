@@ -1,0 +1,262 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: url("../image/bg.jpg") #DFDFDF;
+}
+
+main {
+  flex: 1 0 auto;
+  div.container {
+    width: 95%;
+  }
+}
+
+.collapsible-header {
+  line-height: 2rem;
+}
+
+.summary {
+  margin: 5px 0;
+  line-height: 2rem;
+}
+
+.collapsible-body {
+  background: #FFFFFF;
+}
+
+ul.nav-items {
+  padding-left: 20%;
+}
+
+.pagination li.active {
+  background-color: #448AFF !important;
+}
+
+@media only screen {
+  nav {
+    height: 45px;
+    line-height: 45px;
+    min-height: 45px;
+    .nav-wrapper i {
+      height: 45px;
+      line-height: 45px;
+      min-height: 45px;
+    }
+    a.button-collapse {
+      height: 45px;
+      line-height: 45px;
+      min-height: 45px;
+      i {
+        height: 45px;
+        line-height: 45px;
+        min-height: 45px;
+      }
+    }
+  }
+  ul.dropdown-content li {
+    height: 45px;
+    line-height: 45px;
+    min-height: 45px;
+  }
+  .navbar-fixed {
+    height: 45px;
+  }
+  ul {
+    &.dropdown-content a {
+      line-height: 21px;
+      padding: 12px 16px;
+    }
+    &.select-dropdown li {
+      min-height: 50px;
+    }
+  }
+  .dropdown-content li > span {
+    color: hotpink;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  nav #nav-mobile {
+    a, i {
+      height: 64px;
+      line-height: 64px;
+      min-height: 64px;
+    }
+    li {
+      height: auto;
+      background-color: inherit;
+    }
+  }
+  #nav-mobile .collapsible-according {
+    height: auto;
+    background-color: inherit;
+  }
+  nav {
+    .btn-floating {
+      height: 45px;
+      width: 45px;
+    }
+    #nav-mobile .no-padding ul {}
+  }
+  .bold > a {
+    font-weight: bold;
+  }
+}
+
+@media screen, projection {
+  .card .card-action {
+    padding: 15px;
+  }
+  .card-action a {
+    padding: 0 1rem;
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.top-tags a {
+  margin: 3px 2px;
+}
+
+.friend-links {
+  a {
+    padding: 0 5px;
+    margin: 3px;
+    font-family: "Microsoft YaHei UI Light", "Roboto", sans-serif;
+    font-size: 10px;
+  }
+  i {
+    margin: 0 5px;
+  }
+}
+
+.collapsible-header h5 {
+  margin: 0;
+  padding: 9px 0;
+}
+
+.label {
+  /*margin-left: 10px;*/
+  color: #9e9e9e;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5rem;
+  padding: 2px;
+  .material-icons {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    float: none;
+    display: inline;
+    margin: 0 1px 0 10px;
+    vertical-align: middle;
+  }
+}
+
+.markdown-body {
+  padding: 20px;
+  p {
+    padding: 5px 0;
+    margin: 6px 0;
+  }
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating), .tag-chip {
+  margin: 5px;
+}
+
+.date-group {
+  h4 {
+    margin: 10px 0;
+  }
+  blockquote {
+    border-left: 5px solid #ff6d00;
+    padding-left: 18px;
+    > p {
+      margin: 10px 5px;
+      color: #ff7043;
+      &.num {
+        font-size: 30px;
+      }
+      &.en {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.post-list .row {
+  margin: 0;
+}
+
+.the-article {
+  padding: 10px;
+}
+
+.article-title {
+  padding: 0 20px;
+}
+
+.article-info {
+  margin: 0 20px;
+}
+
+.input-field label i.material-icons {
+  line-height: 22px;
+  position: relative;
+  top: 0.5rem;
+}
+
+.inline {
+  display: inline;
+}
+
+.comment-title i {
+  top: 6px;
+}
+
+.collapsible-body .comment-form {
+  padding: 0 15px;
+  h5 {
+    padding: 0 15px;
+  }
+}
+
+.card .card-action .post-right a:not(.btn):not(.btn-large):not(.btn-floating) {
+  color: #039be5;
+  text-transform: none;
+  transition: color .3s ease;
+  padding: 0;
+}
+
+.row.post-right {
+  margin: 0px;
+  padding: 20px;
+}
+
+.captcha-field {
+  position: relative;
+}
+
+.captcha-input {
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.captcha-img {
+  box-sizing: inherit;
+  height: 3rem;
+  width: 50%;
+  max-width: 160px;
+  line-height: 3rem;
+}
+
+#search-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}

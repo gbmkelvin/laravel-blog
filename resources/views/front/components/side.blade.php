@@ -29,7 +29,7 @@
                                 ->take(setting('hot_tags_count'))
                                 ->orderBy('hot', 'desc')
                                 ->get() as $tag)
-                    <a href="{!! url('/tags/'. $tag->id) !!}" class="chip">{!! $tag->name !!}</a>
+                    <a href="{!! url('/tags/'. $tag->id) !!}" class="chip waves-effect waves-light">{!! $tag->name !!}</a>
                 @endforeach
             </div>
         </div>
@@ -40,7 +40,7 @@
         <div class="friend-links col m12 l12">
             <ul>
                 @foreach($links::all() as $link)
-                    <li><a href="http://{!! $link->link !!}" class="btn btn-flat truncate"><i
+                    <li><a href="http://{!! $link->link !!}" class="btn btn-flat truncate waves-effect waves-light"><i
                                     class="material-icons left black-text">face</i>{!! $link->name !!}</a></li>
                 @endforeach
             </ul>

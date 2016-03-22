@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col s12 m12 l12">
                             @foreach($post->tags as $tag)
-                                <div class="chip">{!! $tag->name !!}</div>
+                                <div class="chip waves-effect">{!! $tag->name !!}</div>
                             @endforeach
                         </div>
                     </div>

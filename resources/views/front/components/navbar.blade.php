@@ -7,8 +7,8 @@
                 <a href="#" data-activates="nav-mobile"
                    class="button-collapse waves-effect btn-flat btn-floating"><i
                             class="material-icons">menu</i></a>
-                <a href="/" class="brand-logo">// Forehalo</a>
-                <ul class="hide-on-med-and-down nav-items">
+                <a href="/" class="brand-logo">// 周小窝 ® Timothy</a>
+                <ul class="hide-on-med-and-down nav-items right">
                     <li><a href="/" class="waves-effect waves-block"><i
                                     class="material-icons left">list</i>Posts</a>
                     </li>
@@ -62,15 +62,15 @@
                                 <div class="collapsible-body">
                                     <ul>
                                         <li><a class="black-text disabled">Group By</a></li>
-                                        <li><a href="{!! url('categories') !!}" class="green-text waves-effect waves-teal">Categories</a></li>
-                                        <li><a href="{!! url('tags') !!}" class="pink-text waves-effect waves-teal">Tags</a></li>
-                                        <li><a href="{!! url('date') !!}" class="orange-text waves-effect waves-teal">Date</a></li>
+                                        <li><a href="{!! url('categories') !!}" class="green-text waves-effect waves-green">Categories</a></li>
+                                        <li><a href="{!! url('tags') !!}" class="pink-text waves-effect waves-pink">Tags</a></li>
+                                        <li><a href="{!! url('date') !!}" class="orange-text waves-effect waves-orange">Date</a></li>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
                     </li>
-                    <li class="bold"><a href="{!! url('about') !!}" class="waves-effect waves-teal white-text">About <i
+                    <li class="bold"><a href="{!! url('about') !!}" class="waves-effect waves-darker white-text">About <i
                                     class="material-icons left">perm_identity</i></a></li>
                     <li>
                         {!! Form::open(['method' => 'get', 'url' => '/search']) !!}

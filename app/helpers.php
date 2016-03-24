@@ -91,7 +91,7 @@ if (!function_exists('destroy')) {
     function destroy($message)
     {
         return sprintf(
-            '<button type="submit" class="btn btn-danger" onclick="return confirm(\'%s\')">Destroy</button>',
+            '<button type="submit" class="btn btn-danger tooltipped" data-position="top" data-delay="50" data-tooltip="Delete" onclick="return confirm(\'%s\')"><i class="material-icons">delete</i></button>',
             $message
         );
     }
